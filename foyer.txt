@@ -1,0 +1,145 @@
+*temp nora_pal "" 
+*label salt
+The smell of sea salt overwhelms you as you stand outside the sumptuous Victorian mansion. You texted Nora a few minutes ago, but she hasn't responded yet. Her mansion is much bigger than you remember; even the lawn takes a minute to walk through, if you can even get past the thick metal gates. The deck extends at least twenty feet on each side.
+
+Nora has invited you to a dinner party at her mansion. She has set up a murder mystery game, and you received an invitation in the mail a few weeks ago. She wants you to meet new people. The only person you know at the party besides Nora is Connor, and he isn't exactly the partying type. 
+
+Looking back to the lawn now, you see it's decorated with luscious lawn furniture. You notice that one of the chairs is so thick it looks like a human- Oh wait, it is. Your eyes squint a little and you can see someone with blonde hair lounging languidly in the chair. Is that Nora? It couldn't be. Not unless Nora lost a hundred pounds and dyed her- 
+
+Oh, no.
+
+The blonde figure is staring at you now. You amble awkwardly on the lawn trying to put on some semblance of a friendly face. The figure - a girl, you can tell from here - does not even notice you coming closer, or is trying not to. You slowly walk up the creaking steps and the girl finally sits up and regards you. She smiles insincerely.
+*choice 
+    #Introduce myself. The point of a dinner party is to meet new people, after all.
+        *set influence_monte %+10
+        *set charisma %+10
+        *set know_monte 1
+        *goto meet_monte
+    #Smile back sincerely and go inside. I don't have to stoop down to her level. I should meet the host, anyway.
+        *set influence_monte %-5
+        *goto inside_foyer
+    #Smile back insincerely and go inside. She's not the type of person I want to get to know. 
+        *set charisma %-5
+        *set willpower %+10 
+        *goto inside_foyer
+*label meet_monte 
+"Hi there," you say, smiling. "I'm...."
+*fake_choice
+    #Emma.
+        *set mc_name "Emma"
+    #Juliet.
+        *set mc_name "Juliet" 
+    #Elizabeth.
+        *set mc_name "Elizabeth"
+    #Karen.
+        *set mc_name "Karen"
+    #Ethan.
+        *set mc_name "Ethan"
+    #Cory.
+        *set mc_name "Cory"
+    #Mark. 
+        *set mc_name "Mark"
+    #John.
+        *set mc_name "John"
+    #Something else.
+        What is your name?
+        *input_text mc_name 
+        *set mc_name $!{mc_name}
+"${mc_name}," she repeats. "I'm Monte, nice to meet you. You're here for the dinner party?"
+
+"Yes. Nora is an old friend." 
+
+"Nora is an old friend of mine, too. I think she has mentioned you once or twice," she tilts her head, considering you. "Since we're going to be at a murder mystery themed dinner party for the next few hours, know I am very good at reading people." Her eyes seem to bore into your soul. What could she possibly know about you?
+
+*fake_choice 
+    #I mean, aside from the fact that you're a girl, which isn't a really interesting tibit anyway.
+        *set mc_him "her"
+        *set mc_his "her" 
+        *set mc_man "girl"
+        *set sex 0 
+    #Completely ignoring the simple observation that you're a guy, you're not sure there's much else to know.
+        *set mc_him "him"
+        *set mc_his "his" 
+        *set mc_man "guy"
+        *set sex 1
+    #The androgynous look that you're putting out isn't really something you want to draw attention to.
+        *set mc_him "them"
+        *set mc_his "their" 
+        *set mc_man "person" 
+        *set sex 2 
+"Nora told me you had an exceptional trait... What was it, exactly?"
+*fake_choice 
+    #Intelligence.
+        *set intelligence %+20
+    #Charisma.
+        *set charisma %+20
+    #Perception. 
+        *set perception %+20
+    #Willpower.
+        *set willpower %+20
+    #Strength.
+        *set strength %+20 
+    #Dexterity.
+        *set dexterity %+20
+"Did Nora really say that?" You ask. 
+
+"Oh yes," Monte asserts. "Nora speaks so highly of you. If I hadn't met you, I think I would be jealous." 
+
+You're not sure what that's supposed to mean, so you nod in mock understanding. "Well, I should probably find Nora soon." 
+
+"Me too. How about we come in together? I don't want to walk in alone a minute after you. It would be so embarrassing." 
+
+You're not quite sure what to make of Monte. On the one hand, she seems like she's trying to be nice. On the other hand, you can't help but feel she's just playing with you. 
+*choice 
+    #Go in with Monte. There's no need to burn bridges.
+        *set influence_monte %+15
+        *set charisma %+10 
+        *set influence_nora %+10
+        *set honor +1  
+        "Why not," you say. "Let's go in together." 
+        Monte smiles at you - a real smile, and links her arm in yours. This 'friendship' seems too chummy to be true, but at least Nora will be happy that you're meeting someone new.  
+        *goto inside_foyer
+
+    #Refuse. I tried to be nice, but I don't trust her act. 
+        "I don't think so," you say. Monte scowls, but you turn your back towards her and knock on the door. 
+        *set charisma %-5
+        *set influence_monte %-20
+        *set influence_nora %-5 
+        *set rebuff_monte +1 
+        *goto inside_foyer
+*label inside_foyer
+When you go to try the door, you see it's already open. The foyer itself is larger than your bedroom back home. There is a red Oriental rug in front of the stairs and the mahogany wood shines. You automatically scuff your shoes on the welcome mat. 
+*if (know_monte = 1) and (rebuff_monte = 0)
+    You see Monte has already removed her shoes and is walking towards the left hall. That must be where everyone else is. She turns back to you. "Well, are you coming or not?" 
+
+    "I'm right behind you," you say, but Monte has already disappeared.
+
+You hear a distant burst of laughter. That must be the dinner party. You walk into the small bathroom on the left of the foyer and check yourself in the mirror. You run your hand through your hair and stand a little bit straighter in anticipation for the dinner party, along with the murder mystery. You check your phone. 
+
+There is about an hour until the actual murder mystery game starts, but Nora asked everyone to come early. The theme is The Roaring '20s. The includes silent era movies, the Harlem Renaissance, the rise of the flapper, and the height of Prohibiton and the mob. It also includes a heavy emphasis on [i]The Great Gatsby[/i]. There is apparently an off-brand Gatsby character and Nora is off-brand Gatsby's wife. You received your invitation in the mail a few weeks ago. It had your character sheet and the address. 
+
+Nora is probably expecting you by now. You leave the bathroom. This is the first time you've been here, 
+*if (rebuff_monte = 1) or (know_monte = 0)
+    and you don't want to have to wander around aimlessly the gigantic mansion. The laughter is certaintly where the party is, but you cannot remember what direction it was in. There are two halls; the left hall and the right hall. You have a 50% chance of getting it right. You take a deep breath and go to the left hall.
+    *page_break 
+    *goto dinner_table 
+*else 
+    and Monte most definitely mentioned meeting you on the deck earlier. 
+    You brush off your clothes and take a deep breath. You're ready to face the music. You walk off in the same hall Monte went into.
+    *page_break 
+    *goto dinner_table 
+*comment if I have time make this a choice. 
+*label dinner_table
+When you walk through the hall, the laughter and talking gets louder. You peer into the dining room, and you see Nora laughing uproariously 
+*if (know_monte > 0) and (rebuff_monte = 0)
+    *set nora_pal "Monte"
+    with Monte. 
+*if (know_monte > 0) and (rebuff_monte > 0)
+    *set nora_pal "the guy with blond hair" 
+    with a guy with blond hair. You've never met him before. 
+*else 
+    *set nora_pal "the girl with blonde hair" 
+    with a girl with blonde hair you've never seen before. 
+
+"${mc_name}! It's so great to see you!" Nora squeals, standing up to give you a hug. The dinner guests smile at you politely, waiting for Nora to introduce you. Six 
+

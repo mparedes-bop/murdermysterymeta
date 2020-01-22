@@ -1,0 +1,3 @@
+*temp character_sex 0 
+*temp character_name ""
+*temp character_info ""
