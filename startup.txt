@@ -29,7 +29,7 @@
 
 *create willpower 10
 
-*create strength 10
+*create stamina 10
 
 *create dexterity 10
 
@@ -37,6 +37,7 @@
 *create mc_him ""
 *create mc_man ""
 *create mc_his "" 
+*create mc_he ""
 *create sex 0 
 *create know_nora 1
 *create know_milos 0
@@ -56,6 +57,10 @@
 *create honor 50
 *create impulsive 50
 *create controlled 50
+*create virtuous 50 
+*create depraved 50
+*create lawful 50
+*create illicit 50
 *create victim ""
 *create murder 0 
 *comment for victim die roll 

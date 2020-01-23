@@ -286,7 +286,26 @@ You think you look the same as you did last year, but you only nod in acknowledg
 
 "The catheter's warm station," Lexa offers helpfully. 
  
+"That doesn't sound right," you say.
 
+"The [i]character information[/i], actually. It's on the invitations I mailed out."
+
+"Enough talking," Connor says seriously. "Let's all go to the dining room before Nora has a fit."
+
+"I will not have a fit," Nora crosses her arms.
+
+"If there is more food in the dining room, I think we should go," Felix chimes in. 
+
+"Weren't you in recovery from a food coma about ten minutes ago?" you ask.
+
+"Part of the cure is eating more food." 
+
+Lexa closes her book with a thud. Everyone looks at her. "Alright now," she begins. "Nora told us to go to the dining room, and we will go to the dining room. All of us, right now. Go!" 
+
+Begrudgingly, everyone slowly stands up and start to walk to the dining room. You see Nora giving Lexa a look of appreciation. 
+
+"You too, ${mc_name}. Come on," Lexa urges you. You follow the guests to the living room. 
+*finish 
 
 
     

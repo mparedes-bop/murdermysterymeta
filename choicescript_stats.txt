@@ -6,12 +6,15 @@
     percent Charisma
     percent Perception
     percent Willpower
-    percent Strength 
+    percent Stamina 
     percent Dexterity
     opposed_pair Impulsive
       Controlled
-    percent Morality
-    percent Honor 
+    opposed_pair Virtuous
+      Depraved 
+    opposed_pair Lawful
+      Illicit
+    
 
 
   
@@ -60,11 +63,9 @@
   #Detective.  
     While you don't know much about Detective, they are eager to help. First to the scene and first to discern the grisly details of the murder, they seem to be the best chance of figuring out who killed ${victim} and why. On the other hand, Detective knowing the intricate details of the murder first and foremost is a little suspicious. What's more, he could be leading the investigation to steer suspicion away from themselves.
 
-    Detective was the first person to see the dead body. Detective claimed that he hadn’t seen ${victim} in a while and was worried they got lost in the mansion. Nora confirmed this as Detective approached Nora beforehand for permission to explore her home. When Detective went into the ${murder_location}, he found ${victim} lying on the floor
-    *if (cause of death) = blood loss 
-	    in a pool of ${victim_his} own blood. 
-    . Detective checked for a pulse and there was none. Immediately after discovering the body, Detective told Nora what he had seen. Nora confirmed this conversation occurred. Could they be in cahoots? 
-
+    Detective was the first person to see the dead body. Detective claimed that he hadn’t seen ${victim} in a while and was worried they got lost in the mansion. Nora confirmed this as Detective approached Nora beforehand for permission to explore her home. When Detective went into the ${murder_location}, he found ${victim} lying on the floor, 
+    dead. Detective checked for a pulse and there was none. Immediately after discovering the body, Detective told Nora what he had seen. Nora confirmed this conversation occurred. Could they be in cahoots? 
+    *comment gosub is a useful command for repeating labelled scenes and in this case we repeat the scene where you can navigate stat screens 
     *gosub main_invest_stats_nav
 *label main_invest_stats_nav
 *choice 
