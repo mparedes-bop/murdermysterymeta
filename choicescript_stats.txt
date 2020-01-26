@@ -15,9 +15,6 @@
     opposed_pair Lawful
       Illicit
     
-
-
-  
 [b]Your Relationships[/b]
 
 *if know_nora = 1
@@ -40,6 +37,19 @@
 *if know_detective = 2
   *stat_chart
     percent influence_detective Detective 
+*if game_on > 0
+    [b]Mystery Notes
+    [b]Who's Who?[/b]
+    text character_info Your Character 
+    text jw_info John Watson 
+    text dk_info Dolores Knight 
+    text gc_info Gal Capone 
+    text rd_info Richard Donahue 
+    text rg_info Ruth Gambit 
+    text nw_info Nicholas Watt 
+    
+ 
+
 *label main_invest_stats
 *if murder > 0 
   *choice 
