@@ -1,3 +1,66 @@
 *temp character_sex 0 
 *temp character_name ""
 *temp character_info ""
+*temp game_v "" 
+*temp game_m ""
+*comment just make victim and murder non-random and assign the specific victim a c_o_d and location
+*comment no point making it random if the game is barely anything 
+*comment this is the information for your murder mystery character, and yes they will all be off-brand Gatsby chaarcters
+*comment this will be fun
+*comment put everyone's fake character info in a temp stat chart in stats tomorrow 
+*comment clue card sheet will be available in stats 
+
+*label choose_ur_character
+The living room is dark and eerie. Someone flicks a switch; dark, pristine Victorian furniture glows under the soft lighting of a chandelier hanging low. The entire room is immaculate, but the place smells like a garage sale. You don't feel like a person in this room; you feel like an observer looking into a glass bowl of a model of Nora's living room. You would think no one had ever stepped into the room if there was a speck of dust anywhere. Do the Rosenwoods even live in their own home? 
+
+"Somebody died here," Monte says casually as she stretches her arms behind her head. 
+*if rebuff_monte = 0
+  Monte gives you an impish smile. 
+ 
+"Alright everybody!" Nora clears her throat. "In a few minutes we will officially begin the murder mystery game. Now is the time to take out the invitations sent in the mail a few weeks prior. Does anyone not have an invitation?" Nora pauses for a millisecond. "Great! The invitations have all the information you need to know about your character, including their gender, name, and background. The invitations do NOT say if you were murdered or are the murderer. Nobody knows anything about the murder until the clues come out in each round. Now let's briefly talk about the rounds..." 
+
+For some reason, you feel compelled to pay attention,  as if Nora is giving instructions for a game even bigger than this murder mystery game you are all playing. 
+
+"The first round is the appetizer round. I will give you all clue cards while you mingle with the other guests. It is imperative to divulge any information on your invitations during the respective round and to the respective recipient of the character. This rule must be followed during all rounds." 
+
+"In round two, the victim will be notified they are the victim. The victim must wear a sign stating they are the victim. If you are the victim, don't worry! You can still play and help along the investigation. Consider yourself as the ghost of the character you were playing. Once the victim is revealed, the investigation round will begin. Continue to mingle and interact with the other guests and more evidence is uncovered."
+
+In the corner of your eye, you spot a tall shadowy figure listening in. When you turn back to it, the figure is gone. You give a brief glance to Lexa, who is oddly engrossed in Nora's long-winded dialogue for the game. Lexa seems to be interesting in the justice side of things; maybe she can help you find the figure later, when the game starts. 
+*comment maybe move that blip about Lexa to a more relevant talk
+
+"Round three is where the fun begins. We start with a small accusation round, and after everyone has made their accusations, I will hand out these 'solution cards' to everyone. Everyone will read out their involvement in the solution and the murder, if any. The murderer will confess at the end. Once that has been sorted, we'll have a brief awards ceremony for anyone who has acheived anything extraordinary in the game," Nora pauses to take a breath. "Each round will be about forty-five minutes long, with a break inbetween. Before we start, take a few minutes to clarify your characters and their information." 
+
+All the guests pull out freshly-printed papers from seemingly nowhere. You self-consciously smooth your crumpled invitation from your pocket. 
+
+[i]Greetings! You have been invited to a roaring speakeasy at 138 Greenwich Avenue...![i/]
+
+*choice
+  #[i]You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money.[/i]
+    *set character_sex 2
+    *set character_name "Willie Panaggio"
+    *set character_info "You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money."
+    *goto who_is_everyone_else
+   #[i]You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic.[/i]
+   *set character_sex 1
+   *set character_name "Marie Escoffier"
+   *set character_info "You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic."
+   *goto who_is_everyone_else 
+  #[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
+  *set character_name "Lee Milton"
+  *set_character_info "You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down."
+  *goto girl_or_boy 
+ *label girl_or_boy 
+The Pinkerton Detective Agency is special in the way it was one of the few companies that hired both men and women. Regardless, it's not like a modern-day murder mystery game cares too much about gender roles, but Nora insisted you distinguish the gender of your character for the purpose of the murder plot.
+*choice
+  #Lee Milton is a woman.
+    *set character_sex 1
+    *goto who_is_everyone_else
+   #Lee Milton is a woman.
+    *set character_sex 2
+    *goto who_is_everyone_else
+   #Lee Milton refuses to confine themself into a binary gender. They could not care less if it sets Nora's murder mystery game into a maelstrom of confusion and chaos. 
+   *set character_sex 3 
+   *set illicit +1 
+   *goto who_is_everyone_else 
+  
+
