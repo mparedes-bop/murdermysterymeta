@@ -1,8 +1,28 @@
+*temp who_are_you 0
+*comment this variable is just for when we need to test for the specific character you are
 *temp character_sex 0 
+*temp char_he ""
+*temp char_his ""
+*temp char_him ""
 *temp character_name ""
 *temp character_info ""
 *temp game_v "" 
 *temp game_m ""
+*temp game_on 0 
+*comment the guests character info and clues variables
+*comment clue variables are just to update the character info when you learn something new
+*temp jw_info ""
+*temp jw_clue 0
+*temp dk_info ""
+*temp dk_clue 0
+*temp gc_info ""
+*temp gc_clue 0
+*temp rd_info ""
+*temp rd_clue 0
+*temp rg_info ""
+*temp rg_clue 0
+*temp nw_info "" 
+*temp nw_clue 0
 *comment just make victim and murder non-random and assign the specific victim a c_o_d and location
 *comment no point making it random if the game is barely anything 
 *comment this is the information for your murder mystery character, and yes they will all be off-brand Gatsby chaarcters
@@ -39,15 +59,26 @@ All the guests pull out freshly-printed papers from seemingly nowhere. You self-
   #[i]You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money.[/i]
     *set character_sex 2
     *set character_name "Willie Panaggio"
+    *set game_m "Willie Panaggio"
+    *set game_v "John Wilson"
+    *set who_are_you 1
     *set character_info "You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money."
-    *goto who_is_everyone_else
+		*gosub char_pronouns
+    *goto panaggio_secret
    #[i]You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic.[/i]
    *set character_sex 1
    *set character_name "Marie Escoffier"
+   *set game_m "John Wilson"
+   *set game_v "Richard Donahue" 
+   *set who_are_you 2
    *set character_info "You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic."
-   *goto who_is_everyone_else 
+	 *gosub char_pronouns
+   *goto escoffier_secret 
   #[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
   *set character_name "Lee Milton"
+  *set game_m "Ruth L. Gambit"
+  *set game_v "Lee Milton" 
+  *set who_are_you 3
   *set_character_info "You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down."
   *goto girl_or_boy 
  *label girl_or_boy 
@@ -55,13 +86,58 @@ The Pinkerton Detective Agency is special in the way it was one of the few compa
 *choice
   #Lee Milton is a woman.
     *set character_sex 1
-    *goto who_is_everyone_else
-   #Lee Milton is a woman.
+		*gosub char_pronouns
+    *goto milton_secret
+   #Lee Milton is a man.
     *set character_sex 2
-    *goto who_is_everyone_else
+		*gosub char_pronouns
+    *goto milton_secret
    #Lee Milton refuses to confine themself into a binary gender. They could not care less if it sets Nora's murder mystery game into a maelstrom of confusion and chaos. 
    *set character_sex 3 
    *set illicit +1 
-   *goto who_is_everyone_else 
-*label who_is_everyone_else
+	 *gosub char_pronouns
+	 *goto milton_secret 
+*label char_pronouns
+*if character_sex = 1 
+	*set char_he "her"
+	*set char_his "her"
+	*set char_him "her"
+	*return 
+*if character_sex = 2 
+	*set char_he "he"
+	*set char_his "his"
+	*set char_him "him"
+	*return
+*label panaggio_secret
+[i]You caught wind of the speakeasy through illicit backchannels in Manhattan. A speakeasy is the perfect place to advertise your moonshine stills and equipment, at never before seen prices. Your equipment is made to last and dirt cheap. Maybe the speakeasy guests don't need to know it's because the core components of your product are lead and arsenic. You're pretty sure lead and arsenic are good in moderation, anyway.[/i]
 
+Your character sounds like a complete jerk. Is this what Nora really thinks of you?
+*if rebuff_monte > 0
+	Maybe she's not far off considering the way you treated Monte. 
+
+[i]You're a smooth talker, quick on your feet, and could charm the hide off of a snake. Once you introduce yourself to everyone, they'll be sure to brighten up to you fast. Although some might note that you look a little suspicious, you shrug off criticism like water off a duck's back. People don't like travelling salesmen until they get to know them, after all.[/i]
+
+At least you have some positive traits. Your eyes stop at some fine print. [i]SUGGESTED OUTFIT: 3-PIECE TIE WITH ALLIGATOR SKIN LOAFERS[/i]
+
+Costumes? Nora never mentioned costumes. 
+
+"${mc_name}!," someone calls. "Nora wants you in the closet."  
+*goto costumes 
+*label escoffier_secret
+[i]You were officially hired by Gal Capone to cater some delicacies from your home country of France. Along with some lovely hors d'oeuvres, you have prepared your signature dish for the dinner; coq au vin. A peasant dish suited for a group of American peasants. You never would have said yes to the gig if Gal Capone wasn't offering you a ridiculous amount of money, all in cash, in exchange for your food and your presence. You're not too proud to serve wets.[/i]
+
+Hopefully you weren't actually expected to cater. 
+*if intelligence < 10 
+	You don't even know what "coq au vin" is. 
+[i]You're sophisicated, snobbish, and condescending. Nothing less is expected of a French cook. You have a certain magnetic charm and grace around you, and the other guests (especially the men) respond to it. Your elegance is reflected everywhere about you; you walk with the poise of a ballerina, you smile like someone just told you a very big secret. You are the pinnacle of propriety. Act like it![/i]
+
+This character seems like a lot to live up to. You only hope you can give her justice. On the bottom of the invitation, you eye a line of fine print: 
+[i]SUGGESTED OUTFIT: SHORT SUMMER DRESS WITH COLORFUL CLOCHE HAT AND SCARF[/i]
+
+Costumes? Nora never mentioned costumes. 
+
+"${mc_name}!," someone calls. "Nora wants you in the closet."  
+*goto costumes 
+
+*label milton_secret 
+[i]
