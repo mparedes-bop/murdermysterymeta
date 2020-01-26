@@ -1,4 +1,5 @@
-*temp nora_pal "" 
+*temp nora_pal ""
+*comment this command makes a variable only exist in this file 
 *label salt
 The smell of sea salt overwhelms you as you stand outside the sumptuous Victorian mansion. You texted Nora a few minutes ago, but she hasn't responded yet. Her mansion is much bigger than you remember; even the lawn takes a minute to walk through, if you can even get past the thick metal gates. The deck extends at least twenty feet on each side.
 
