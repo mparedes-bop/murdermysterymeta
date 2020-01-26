@@ -17,7 +17,8 @@ The living room is dark and eerie. Someone flicks a switch; dark, pristine Victo
 *if rebuff_monte = 0
   Monte gives you an impish smile. 
  
-"Alright everybody!" Nora clears her throat. "In a few minutes we will officially begin the murder mystery game. Now is the time to take out the invitations sent in the mail a few weeks prior. Does anyone not have an invitation?" Nora pauses for a millisecond. "Great! The invitations have all the information you need to know about your character, including their gender, name, and background. The invitations do NOT say if you were murdered or are the murderer. Nobody knows anything about the murder until the clues come out in each round. Now let's briefly talk about the rounds..." 
+"Alright everybody!" Nora clears her throat. "In a few minutes we will officially begin the murder mystery game. Now is the time to take out the invitations sent in the mail a few weeks prior. Does anyone not have an invitation?" Nora pauses for a millisecond. "Great! The invitations have all the information you need to know about your character, including their gender,
+name, and background. The invitations do NOT say if you were murdered or are the murderer. Nobody knows anything about the murder until the clues come out in each round. Now let's briefly talk about the rounds..." 
 
 For some reason, you feel compelled to pay attention,  as if Nora is giving instructions for a game even bigger than this murder mystery game you are all playing. 
 
@@ -62,5 +63,5 @@ The Pinkerton Detective Agency is special in the way it was one of the few compa
    *set character_sex 3 
    *set illicit +1 
    *goto who_is_everyone_else 
-  
+*label who_is_everyone_else
 
