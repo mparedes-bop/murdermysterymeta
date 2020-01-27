@@ -57,31 +57,31 @@ All the guests pull out freshly-printed papers from seemingly nowhere. You self-
 [i]Greetings! You have been invited to a roaring speakeasy at 138 Greenwich Avenue...![i/]
 
 *choice
-  #[i]You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money.[/i]
-    *set character_sex 1
-    *set character_name "Willie Panaggio"
-    *set game_m "Willie Panaggio"
-    *set game_v "John Wilson"
-    *set who_are_you 1
-	*set character_info "You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money."
-	*gosub char_pronouns
-    *goto panaggio_secret
-   #[i]You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic.[/i]
-   *set character_sex 0
-   *set character_name "Marie Escoffier"
-   *set game_m "John Wilson"
-   *set game_v "Richard Donahue" 
-   *set who_are_you 2
-   *set character_info "You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic."
-   *gosub char_pronouns
-   *goto escoffier_secret 
-  #[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
-  *set character_name "Lee Milton"
-  *set game_m "Ruth L. Gambit"
-  *set game_v "Lee Milton" 
-  *set who_are_you 3
-  *set_character_info "You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down."
-  *goto girl_or_boy 
+	#[i]You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money.[/i]
+		*set character_sex 1
+		*set character_name "Willie Panaggio"
+		*set game_m "Willie Panaggio"
+		*set game_v "John Wilson"
+		*set who_are_you 1
+		*set character_info "You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money."
+		*gosub char_pronouns
+		*goto panaggio_secret
+	#[i]You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic.[/i]
+		*set character_sex 0
+		*set character_name "Marie Escoffier"
+		*set game_m "John Wilson"
+		*set game_v "Richard Donahue" 
+		*set who_are_you 2
+		*set character_info "You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic."
+		*gosub char_pronouns
+		*goto escoffier_secret 
+  	#[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
+		*set character_name "Lee Milton"
+		*set game_m "Ruth L. Gambit"
+		*set game_v "Lee Milton" 
+		*set who_are_you 3
+		*set_character_info "You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down."
+		*goto girl_or_boy 
 *label girl_or_boy 
 The Pinkerton Detective Agency is special in the way it was one of the few companies that hired both men and women. Regardless, it's not like a modern-day murder mystery game cares too much about gender roles, but Nora insisted you distinguish the gender of your character for the purpose of the murder plot.
 *choice
