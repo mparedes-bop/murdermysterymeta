@@ -1,0 +1,317 @@
+*temp nora_pal ""
+*comment this command makes a variable only exist in this file 
+*label salt
+The smell of sea salt overwhelms you as you stand outside the sumptuous Victorian mansion. You texted Nora a few minutes ago, but she hasn't responded yet. Her mansion is much bigger than you remember; even the lawn takes a minute to walk through, if you can even get past the thick metal gates. The deck extends at least twenty feet on each side.
+
+Nora has invited you to a dinner party at her mansion. She has set up a murder mystery game, and you received an invitation in the mail a few weeks ago. She wants you to meet new people. The only person you know at the party besides Nora is Connor, and he isn't exactly the partying type. 
+
+Looking back to the lawn now, you see it's decorated with luscious lawn furniture. You notice that one of the chairs is so thick it looks like a human- Oh wait, it is. Your eyes squint a little and you can see someone with blonde hair lounging languidly in the chair. Is that Nora? It couldn't be. Not unless Nora lost a hundred pounds and dyed her- 
+
+Oh, no.
+
+The blonde figure is staring at you now. You amble awkwardly on the lawn trying to put on some semblance of a friendly face. The figure - a girl, you can tell from here - does not even notice you coming closer, or is trying not to. You slowly walk up the creaking steps and the girl finally sits up and regards you. She smiles insincerely.
+*choice 
+    #Introduce myself. The point of a dinner party is to meet new people, after all.
+        *set influence_monte %+10
+        *set charisma %+10
+        *set know_monte 1
+        *goto meet_monte
+    #Smile back sincerely and go inside. I don't have to stoop down to her level. I should meet the host, anyway.
+        *set influence_monte %-5
+        *goto inside_foyer
+    #Smile back insincerely and go inside. She's not the type of person I want to get to know. 
+        *set charisma %-5
+        *set willpower %+10 
+        *goto inside_foyer
+*label meet_monte 
+"Hi there," you say, smiling. "I'm...."
+*comment fake_choice is a command that acts as a regular choice but they all go to the same label 
+*fake_choice
+    #Emma.
+        *set mc_name "Emma"
+    #Juliet.
+        *set mc_name "Juliet" 
+    #Elizabeth.
+        *set mc_name "Elizabeth"
+    #Karen.
+        *set mc_name "Karen"
+    #Ethan.
+        *set mc_name "Ethan"
+    #Cory.
+        *set mc_name "Cory"
+    #Mark. 
+        *set mc_name "Mark"
+    #John.
+        *set mc_name "John"
+    #Something else.
+        What is your name?
+        *input_text mc_name 
+        *set mc_name "$!{mc_name}"
+"${mc_name}," she repeats. "I'm Monte, nice to meet you. You're here for the dinner party?"
+
+"Yes. Nora is an old friend." 
+
+"Nora is an old friend of mine, too. I think she has mentioned you once or twice," she tilts her head, considering you. "Since we're going to be at a murder mystery themed dinner party for the next few hours, know I am very good at reading people." Her eyes seem to bore into your soul. What could she possibly know about you?
+
+*fake_choice 
+    #I mean, aside from the fact that you're a girl, which isn't a really interesting tibit anyway.
+        *set mc_him "her"
+        *set mc_his "her" 
+        *set mc_he "she"
+        *set mc_man "girl"
+        *set sex 0 
+    #Completely ignoring the simple observation that you're a guy, you're not sure there's much else to know.
+        *set mc_him "him"
+        *set mc_his "his" 
+        *set mc_man "guy"
+        *set mc_he "he"
+        *set sex 1
+    #The androgynous look that you're putting out isn't really something you want to draw attention to.
+        *set mc_him "them"
+        *set mc_his "their" 
+        *set mc_he "they"
+        *set mc_man "person" 
+        *set sex 2 
+"Nora told me you had an exceptional trait... What was it, exactly?"
+*fake_choice 
+    #Intelligence.
+        *set intelligence %+20
+    #Charisma.
+        *set charisma %+20
+    #Perception. 
+        *set perception %+20
+    #Willpower.
+        *set willpower %+20
+    #Stamina.
+        *set stamina %+20 
+    #Dexterity.
+        *set dexterity %+20
+"Did Nora really say that?" You ask. 
+
+"Oh yes," Monte asserts. "Nora speaks so highly of you. If I hadn't met you, I think I would be jealous." 
+
+You're not sure what that's supposed to mean, so you nod in mock understanding. "Well, I should probably find Nora soon." 
+
+"Me too. How about we come in together? I don't want to walk in alone a minute after you. It would be so embarrassing." 
+
+You're not quite sure what to make of Monte. On the one hand, she seems like she's trying to be nice. On the other hand, you can't help but feel she's just playing with you. 
+*choice 
+    #Go in with Monte. There's no need to burn bridges.
+        *set influence_monte %+15
+        *set charisma %+10 
+        *set influence_nora %+10
+        *set honor +1  
+        "Why not," you say. "Let's go in together." 
+        Monte smiles at you - a real smile, and links her arm in yours. This 'friendship' seems too chummy to be true, but at least Nora will be happy that you're meeting someone new.  
+        *goto inside_foyer
+
+    #Refuse. I tried to be nice, but I don't trust her act. 
+        "I don't think so," you say. Monte scowls, but you turn your back towards her and knock on the door. 
+        *set charisma %-5
+        *set influence_monte %-20
+        *set influence_nora %-5 
+        *set rebuff_monte +1 
+        *goto inside_foyer
+*label inside_foyer
+When you go to try the door, you see it's already open. The foyer itself is larger than your bedroom back home. There is a red Oriental rug in front of the stairs and the mahogany wood shines. You automatically scuff your shoes on the welcome mat. 
+*if (know_monte = 1) and (rebuff_monte = 0)
+    You see Monte has already removed her shoes and is walking towards the left hall. That must be where everyone else is. She turns back to you. "Well, are you coming or not?" 
+
+    "I'm right behind you," you say, but Monte has already disappeared.
+
+You hear a distant burst of laughter. That must be the dinner party. You walk into the small bathroom on the left of the foyer and check yourself in the mirror. You run your hand through your hair and stand a little bit straighter in anticipation for the dinner party, along with the murder mystery. You check your phone. 
+
+There is about an hour until the actual murder mystery game starts, but Nora asked everyone to come early. The theme is The Roaring '20s. The includes silent era movies, the Harlem Renaissance, the rise of the flapper, and the height of Prohibiton and the mob. It also includes a heavy emphasis on [i]The Great Gatsby[/i]. There is apparently an off-brand Gatsby character and Nora is off-brand Gatsby's wife. You received your invitation in the mail a few weeks ago. It had your character sheet and the address. 
+
+Nora is probably expecting you by now. You leave the bathroom. This is the first time you've been here, 
+*if (rebuff_monte = 1) or (know_monte = 0)
+    and you don't want to have to wander around aimlessly the gigantic mansion. The laughter is certaintly where the party is, but you cannot remember what direction it was in. There are two halls; the left hall and the right hall. You have a 50% chance of getting it right. You take a deep breath and go to the left hall.
+    *page_break 
+    *goto dinner_table 
+*else 
+    and Monte most definitely mentioned meeting you on the deck earlier. 
+    You brush off your clothes and take a deep breath. You're ready to face the music. You walk off in the same hall Monte went into.
+    *page_break 
+    *goto dinner_table 
+*comment if I have time make this a choice. 
+*label dinner_table
+When you walk through the hall, the laughter and talking gets louder. You peer into the dining room, and you see Nora laughing uproariously 
+*if (know_monte > 0) and (rebuff_monte = 0)
+    *set nora_pal "Monte"
+    with Monte. 
+    *goto meet_dinner
+*if (know_monte > 0) and (rebuff_monte > 0)
+    *set nora_pal "the guy with blond hair" 
+    with a guy with blond hair. You've never met him before. 
+    *goto meet_dinner
+*else 
+    *set nora_pal "the girl with blonde hair" 
+    with a girl with blonde hair you've never seen before. 
+    *goto meet_dinner
+*label meet_dinner 
+"${mc_name}! It's so great to see you!" Nora squeals, standing up to give you a hug. The dinner guests smile at you politely, waiting for an introduction. You take this awkward moment as an opportunity to look over the opulent dining room. The Rosenwoods make it clear they are wealthy. The mahogany dining table and its matching chair set are glistening with newly applied wood polish. The chairs have leather cushions that appear to be comfortable. $!{nora_pal} gives you an intense stare, and you stand up a bit straighter under the scrutiny. 
+
+"It's good to see you too, Nora," you say. "And your guests," you add. 
+
+"Right! Let me introduce you to everyone. Everyone, this is ${mc_name}. ${mc_name},
+*if (know_monte = 0) and (nora_pal = "the girl with blonde hair")
+    *label meet_monte2
+    *set know_monte +1 
+    this is Monte," she gestures to the girl with blonde hair who was sitting next to her. Monte gives you a small nod of acknowledgement.
+    *goto meet_everyone 
+*if (nora_pal = "the guy with blond hair")
+    *label meet_milos 
+    *set know_milos +1 
+    this is Milos. He's a transfer student from one of those small European countries... Milos, where are you from again?"
+
+    "Europe," Milos grunts out. 
+
+    "He's still getting used to American customs." Nora smiles at you.
+*if (rebuff_monte > 0) and (know_monte > 0)
+    ..." As Nora prepares to introduce the person, Monte walks in. You tense. If Monte tells Nora what happened on the porch, Nora won't be happy. 
+    
+    "Monte! I'm glad you're back. You were out on the porch for a while," Nora says.
+
+    "Well, after ${mc_name} kindly ignored me on the porch, I had to stay a little longer to compose myself," Monte sniffs superfically.
+
+    Nora walks next to Monte and talks to her in hushed tones, giving you a faint look of disapproval. You can't hear what they are saying, but they are obviously talking about you. Monte is trying to sully your name as best as she can, and Nora is listening. Even the guests look at you with a hint of pity. Without Nora to steer the conversation, the guests quietly pick at their food and try to eavesdrop without looking like they're eavesdropping. Finally, Nora turns to you. 
+
+    "${mc_name}," she begins. "You and Monte got off on the wrong foot. For the sake of the party, I ask that you two make up. I know that you guys can be civil and maybe even friendly. Do you agree, Monte?" 
+
+    "I can be civil if ${mc_he} can." 
+
+    "Good. And you, ${mc_name}?" 
+
+    "Of course. For the sake of the party," you promise.
+
+    "Good," Nora lets out a breath. "Apologies for the detour, let me introduce everyone properly now." 
+    *goto meet_everyone
+*label meet_everyone
+*set know_lexa +1
+*set know_felix +1
+*set know_detective +1 
+*if know_milos = 0
+    *gosub meet_milos
+*if know_monte = 0 
+    *gosub meet_monte2
+*label meet_lexa 
+"You know Milos and Monte already. That is Lexa," Nora gestures to a girl with dark hair and glasses. She's reading a book on the table and is not paying attention to Nora at all. A tall dude next to her lightly pokes her in the shoulder and lazily points to Nora. 
+
+"Hi! Sorry, this is a great book. It's [i]Crime and Punishment[/i]. Dostoevsky is a legendary writer. I'm only on page 154, but you can tell why he was revered as an author. Such a haunted soul. But honestly, I only picked up the book because I thought it was actually about crime and punishment, but it is so much more than that! I'm glad I ended up reading it, though. I love reading if you can't tell. Sorry, I didn't catch your name?" 
+
+"${mc_name}."
+
+"Oh, right, ${mc_name}. I think Nora said that." 
+
+"Yes, she was introducing me to you."
+
+"Of course she was, Nora loves to introduce people. I think I've been talking too much, sorry about that. I do that pretty often. I just have so much to say. I'm Lexa, of course. But you already knew that, I'm assuming?" 
+
+"Yes, Nora introduced me to you."
+
+"Nora is just so lovely. Anyway, do you like reading... ${mc_name}? I'm terrible with names, as you can see." 
+
+*fake_choice
+    #"I love it. It's one of my favorite hobbies."
+        *set influence_lexa %+15 
+        "It's my favorite! I can already tell we'll get along great. I already feel a sort of connection to you, if you don't mind me saying."
+
+        "Not at all," you say. "It's good to meet you." 
+    #"I read occasionally." 
+        *set influence_lexa %+10 
+        "Reading at all is great! I'm sure later we'll have time to talk about the books you have read and the books you absolutely must read. Right now I think Nora just wants to introduce you to everyone before getting into the murder mystery game. You are playing the murder mystery game?" 
+
+        "I believe so." 
+
+        "Then maybe you'll get a character who reads occasionally like you do and we'll talk all about books!" 
+
+        "Later," you clarify. 
+
+        "Yes, later, when we have time." Lexa is enthusiastic.
+    #"I do not read, but I would like to." 
+        "Of course you would like to!" Lexa smiles. "It's a great hobby, and very rewarding. I have a few recommendations for you that we will have very long discussions about when the time comes." 
+
+        "As time permits, of course" you say warily. 
+
+        "Of course. I'm sure we'll have time during the game later when we can walk around and talk to the other characters. Oh sorry, that's a game mechanic you haven't been introduced to yet." 
+
+        "What?" 
+
+        "Come on, ${mc_name}, I haven't introduced you to Felix yet!" 
+    #"I don't like to read." 
+        *set influence_lexa %-5 
+        "Why not? Reading is a great activity. I only recently started reading, but it has changed my life. I think we should talk more on this when we play the murder game. Maybe you'll get a character that likes books!" 
+        *goto meet_felix
+*label meet_felix
+"That's Felix, next to Lexa." Nora points out. Felix has wavy blond hair. He looks up at you and gives you a thumbs up and slouches back into his chair. 
+
+"You don't talk a lot," you say to Felix. 
+
+"Dude, I am recovering from a serious case of food coma. The only cure is rest. I should be fine by the time we start the murder game. We'll talk later." 
+
+"Looking forward to it," you say. 
+
+"So am I! You just need to meet Detective, he's a great guy."
+*label meet_connor 
+"His name is Detective?"
+
+"I don't know his real name, but everyone calls him Detective. He's always investigating little mysteries around school."
+
+A small, mousy guy with wispy and wavy dark hair stands up and taps Nora's shoulder. 
+
+"Connor! You scared me, I didn't see you coming," Nora says shakily. 
+
+"I believe you have yet to introduce me to our new guest," he gestures at you. 
+
+"Connor, this is ${mc_name}! We all went to school together, before I transferred."
+
+"${mc_name}! You look so different, I didn't recognize you." 
+
+You think you look the same as you did last year, but you only nod in acknowledgement. "It's good to see you again," you say. 
+
+"It's good to see you, too! We have to catch up when we're doing the murder mystery game." 
+
+"Only during the murder mystery game? We can talk right now," you offer. 
+
+"We don't have time right now," Nora interjects. "I was waiting for you to meet everyone, and then we will start the murder mystery game. Now that you met everybody, we can start!"
+
+"I didn't meet Detective," you note. 
+
+"You will," Connor assures you. 
+
+"Attention everyone!" All the guests turn to Nora. "The murder mystery game will start in five minutes. Please finish your meals and make your way to the living room, where we will proceed to introduce the first round of the game. Please refer to your invitation for all the information about your character. As soon as the first round begins, you must get into character and do not leave character unless something that I deem an exigency occurs during the game." Nora pauses and scans the room to see if people are listening. They are not.
+
+"Please read the character information carefully, as there may be some information that you can not yet divulge to other people until certain events happen. This is extremely important. I repeat, please read the character information carefully. Are there any questions?" 
+
+"What do we read carefully?" Felix asks. 
+
+"The catheter's warm station," Lexa offers helpfully. 
+ 
+"That doesn't sound right," you say.
+
+"The [i]character information[/i], actually. It's on the invitations I mailed out."
+
+"Enough talking," Connor says seriously. "Let's all go to the dining room before Nora has a fit."
+
+"I will not have a fit," Nora crosses her arms.
+
+"If there is more food in the dining room, I think we should go," Felix chimes in. 
+
+"Weren't you in recovery from a food coma about ten minutes ago?" you ask.
+
+"Part of the cure is eating more food." 
+
+Lexa closes her book with a thud. Everyone looks at her. "Alright now," she begins. "Nora told us to go to the dining room, and we will go to the dining room. All of us, right now. Go!" 
+
+Begrudgingly, everyone slowly stands up and start to walk to the dining room. You see Nora giving Lexa a look of appreciation. 
+
+"You too, ${mc_name}. Come on," Lexa urges you. You follow the guests to the living room. 
+*finish 
+
+
+    
+
+
+    
+
+ 

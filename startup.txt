@@ -18,9 +18,9 @@
 *author Melody Paredes
 *scene_list
   startup
-  foyer
-  dinner
-  murder
+  ch1
+  ch2
+  ch3
 *create intelligence 10 
 *create rebuff_monte 0 
 *create charisma 10 
