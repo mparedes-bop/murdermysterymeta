@@ -54,3 +54,11 @@
   *set cause_of_death "poisoning"
 *if murder_w = 2
 
+Do you want to see who-dun-it?
+*fake_choice 
+ #Yes.
+  ${killer} murdered ${victim} in the ${murder_location} with ${murder_weapon}. The official cause of death was ruled as ${cause_of_death}.
+ #No.
+  bruh
+*finish 
+ 
