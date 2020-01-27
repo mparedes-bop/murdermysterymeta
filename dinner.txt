@@ -1,3 +1,306 @@
-*temp character_sex 0 
+*temp who_are_you 
+*comment this variable is just for when we need to test for the specific character you are
+*temp character_sex  
+*temp char_he ""
+*temp char_his ""
+*temp char_him ""
 *temp character_name ""
 *temp character_info ""
+*temp game_v "" 
+*temp game_m ""
+*temp game_on 0 
+*comment the guests character info and clues variables
+*comment clue variables are just to update the character info when you learn something new
+*temp jw_info ""
+*temp jw_clue 0
+*temp dk_info ""
+*temp dk_clue 0
+*temp gc_info ""
+*temp gc_clue 0
+*temp rd_info ""
+*temp rd_clue 0
+*temp rg_info ""
+*temp rg_clue 0
+*temp nw_info "" 
+*temp nw_clue 0
+
+*comment just make victim and murder non-random and assign the specific victim a c_o_d and location
+*comment no point making it random if the game is barely anything 
+*comment this is the information for your murder mystery character, and yes they will all be off-brand Gatsby chaarcters
+*comment this will be fun
+*comment put everyone's fake character info in a temp stat chart in stats tomorrow 
+*comment clue card sheet will be available in stats 
+
+*label choose_ur_character
+The living room is dark and eerie. Someone flicks a switch; dark, pristine Victorian furniture glows under the soft lighting of a chandelier hanging low. The entire room is immaculate, but the place smells like a garage sale. You don't feel like a person in this room; you feel like an observer looking into a glass bowl of a model of Nora's living room. You would think no one had ever stepped into the room if there was a speck of dust anywhere. Do the Rosenwoods even live in their own home? 
+
+"Somebody died here," Monte says casually as she stretches her arms behind her head. 
+*if rebuff_monte = 0
+  Monte gives you an impish smile. 
+ 
+"Alright everybody!" Nora clears her throat. "In a few minutes we will officially begin the murder mystery game. Now is the time to take out the invitations sent in the mail a few weeks prior. Does anyone not have an invitation?" Nora pauses for a millisecond. "Great! The invitations have all the information you need to know about your character, including their gender,
+name, and background. The invitations do NOT say if you were murdered or are the murderer. Nobody knows anything about the murder until the clues come out in each round. Now let's briefly talk about the rounds..." 
+
+For some reason, you feel compelled to pay attention,  as if Nora is giving instructions for a game even bigger than this murder mystery game you are all playing. 
+
+"The first round is the appetizer round. I will give you all clue cards while you mingle with the other guests. It is imperative to divulge any information on your invitations during the respective round and to the respective recipient of the character. This rule must be followed during all rounds." 
+
+"In round two, the victim will be notified they are the victim. The victim must wear a sign stating they are the victim. If you are the victim, don't worry! You can still play and help along the investigation. Consider yourself as the ghost of the character you were playing. Once the victim is revealed, the investigation round will begin. Continue to mingle and interact with the other guests and more evidence is uncovered."
+
+In the corner of your eye, you spot a tall shadowy figure listening in. When you turn back to it, the figure is gone. You give a brief glance to Lexa, who is oddly engrossed in Nora's long-winded dialogue for the game. Lexa seems to be interested in the justice side of things; maybe she can help you find the figure later, when the game starts. 
+*comment maybe move that blip about Lexa to a more relevant talk
+
+"Round three is where the fun begins. We start with a small accusation round, and after everyone has made their accusations, I will hand out these 'solution cards' to everyone. Everyone will read out their involvement in the solution and the murder, if any. The murderer will confess at the end. Once that has been sorted, we'll have a brief awards ceremony for anyone who has acheived anything extraordinary in the game," Nora pauses to take a breath. "Each round will be about forty-five minutes long, with a break inbetween. Before we start, take a few minutes to clarify your characters and their information." 
+
+All the guests pull out freshly-printed papers from seemingly nowhere. You self-consciously smooth your crumpled invitation from your pocket. 
+
+[i]Greetings! You have been invited to a roaring speakeasy at 138 Greenwich Avenue...![i/]
+
+*choice
+  #[i]You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money.[/i]
+    *set character_sex 1
+    *set character_name "Willie Panaggio"
+    *set game_m "Willie Panaggio"
+    *set game_v "John Wilson"
+    *set who_are_you 1
+    *set character_info "You are Willie Panaggio, a travelling salesman who caught wind of the speakeasy. You're trying to advertise your moonshine stills to Prohibiton lord Gal Capone. You're a smooth talker, and you always follow the money."
+		*gosub char_pronouns
+    *goto panaggio_secret
+   #[i]You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic.[/i]
+   *set character_sex 0
+   *set character_name "Marie Escoffier"
+   *set game_m "John Wilson"
+   *set game_v "Richard Donahue" 
+   *set who_are_you 2
+   *set character_info "You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic."
+	 *gosub char_pronouns
+   *goto escoffier_secret 
+  #[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
+  *set character_name "Lee Milton"
+  *set game_m "Ruth L. Gambit"
+  *set game_v "Lee Milton" 
+  *set who_are_you 3
+  *set_character_info "You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down."
+  *goto girl_or_boy 
+ *label girl_or_boy 
+The Pinkerton Detective Agency is special in the way it was one of the few companies that hired both men and women. Regardless, it's not like a modern-day murder mystery game cares too much about gender roles, but Nora insisted you distinguish the gender of your character for the purpose of the murder plot.
+*choice
+  #Lee Milton is a woman.
+    *set character_sex 0
+		*gosub char_pronouns
+    *goto milton_secret
+   #Lee Milton is a man.
+    *set character_sex 1
+		*gosub char_pronouns
+    *goto milton_secret
+   #Lee Milton refuses to confine themself into a binary gender. They could not care less if it sets Nora's murder mystery game into a maelstrom of confusion and chaos. 
+   *set character_sex 2 
+   *set illicit +1 
+	 *gosub char_pronouns
+	 *goto milton_secret 
+*label char_pronouns
+*if character_sex = 0 
+	*set char_he "her"
+	*set char_his "her"
+	*set char_him "her"
+*if character_sex = 1 
+	*set char_he "he"
+	*set char_his "his"
+	*set char_him "him"
+*if character_sex = 2
+	*set char_he "they"
+	*set char_his "their"
+	*set char_him "them"
+	*return
+*label panaggio_secret
+[i]You caught wind of the speakeasy through illicit backchannels in Manhattan. A speakeasy is the perfect place to advertise your moonshine stills and equipment, at never before seen prices. Your equipment is made to last and dirt cheap. Maybe the speakeasy guests don't need to know it's because the core components of your product are lead and arsenic. You're pretty sure lead and arsenic are good in moderation, anyway.[/i]
+
+Your character sounds like a complete jerk. Is this what Nora really thinks of you?
+*if rebuff_monte > 0
+	Maybe she's not far off considering the way you treated Monte. 
+
+[i]You're a smooth talker, quick on your feet, and could charm the hide off of a snake. Once you introduce yourself to everyone, they'll be sure to brighten up to you fast. Although some might note that you look a little suspicious, you shrug off criticism like water off a duck's back. People don't like travelling salesmen until they get to know them, after all.[/i]
+
+At least you have some positive traits. Your eyes stop at some fine print. 
+
+[i]SUGGESTED OUTFIT: 3-PIECE SUIT AND TIE WITH ALLIGATOR SKIN LOAFERS[/i]
+
+Costumes? Nora never mentioned costumes. 
+
+"${mc_name}!," someone calls. "Nora wants you in the closet."  
+*goto costumes 
+*label escoffier_secret
+[i]You were officially hired by Gal Capone to cater some delicacies from your home country of France. Along with some lovely hors d'oeuvres, you have prepared your signature dish for the dinner; coq au vin. A peasant dish suited for a group of American peasants. You never would have said yes to the gig if Gal Capone wasn't offering you a ridiculous amount of money, all in cash, in exchange for your food and your presence. You're not too proud to serve wets.[/i]
+
+Hopefully you weren't actually expected to cater. 
+*if intelligence < 10 
+	You don't even know what "coq au vin" is. 
+[i]You're sophisicated, snobbish, and condescending. Nothing less is expected of a French cook. You have a certain magnetic charm and grace around you, and the other guests (especially the men) respond to it. Your elegance is reflected everywhere about you; you walk with the poise of a ballerina, you smile like someone just told you a very big secret. You are the pinnacle of propriety. Act like it![/i]
+
+This character seems like a lot to live up to. You only hope you can give her justice. On the bottom of the invitation, you eye a line of fine print: 
+[i]SUGGESTED OUTFIT: SHORT SUMMER DRESS WITH COLORFUL CLOCHE HAT AND SCARF[/i]
+
+Like a costume? When did Nora talk about a costume?  
+
+"${mc_name}!," someone calls. "Nora wants you in the closet."  
+*goto costumes 
+
+*label milton_secret 
+[i]Former Pinkerton Agent turned private detective, you have been investigating Gal Capone for a few years now. You considered her impossible to track, way too many red herrings, too much of smoke and mirrors. That is, until you discovered a poster advertising the speakeasy in a well-hidden bar on the seedy side of town. You used a little elbow grease to get your ticket in, but now you're right next to the Queen herself. Can you get Gal Capone behind bars before she figures something's up?[/i]
+
+Seems like your character has a pretty big secret. You wonder if this means you'll play a big role during the game. 
+*if charisma >18 
+	If it is, you'll be pretty psyched. You're already outgoing in real life, so this will be a piece of cake and fun to boot. 
+How did Nora pick out these characters for everyone? You're not sure if this is really you. Could you even pull off being a devious detective? You scan the invitation further. 
+
+[i]You're a detective with years of experience. Being perceptive, creative, organized, and logical comes naturally to you. You can reason most things out, and you don't act before thinking. You're cool and collected nearly to a fault. If you had any faults, that is. Confidence is another important part of being a detective, and you have a fair bit of it. Sometimes you're so logical you're nearly rigid, but that's not a huge flaw. Maybe you have a tendency to overthink and overanalyze too, if you're really being anal about yourself. Overall, you know there's no one better suited to taking Gal Capone down.[/i]
+
+There's a sentence even lower in small font. You squint to read it: 
+[i]SUGGESTED OUTFIT: TRENCH COAT WITH SHERLOCK HAT AND MAGNIFYING GLASS[/i]
+
+Suggested outfit? Nora never said anything about that. 
+
+"${mc_name}!," someone calls. "Nora wants you in the closet."  
+*page_break 
+*goto costumes 
+
+*label costumes
+The broom closet is the size of your living room. Inside are a bunch of flashy coats and accessories. There are even labels everywhere - one side says suits, another says dresses. There's a whole box labelled "cravats" and on top of the closet are shoe racks with their sizes marked from size 3 kids to size 13 mens. The amount of effort and planning Nora went into with this party is seriously impressive. Although you can't help but think that having two CEOs for parents helps a good amount. Felix and Milos are inside, trying on clothes. Felix is wearing a stuffy blue pinstripe suit and scowling at the mirror. Meanwhile, Milos is drowning in his suit pants struggling to find his size. 
+
+Nora suddenly materializes in front of you. She has an expression on her face halfway between smiling and halfway between crying. "Thank goodness you're here, ${mc_name}. And not a moment too soon." 
+
+"You told me to come here," you note. 
+
+"I did, yes. The important thing is that you listened to my request and summarily arrived. That is the marking of a true friend."
+
+"What do you need?" 
+
+"Well, for starters, I need you to find your costume quick. Did you read the invitation? I wrote a suggested outfit down there for you. You don't need to listen, of course, but I think it would match your character nicely. Get dressed as soon as you find something to wear, and come back to me. We really need to get this game going," Nora runs a hand through her hair. She's very frazzled.
+
+*fake_choice
+	#Soothe Nora by offering her an warm tribute. She needs a breather if she's going to keep this party alive.
+		You glance at Nora. She looks back. "Nora, let's breathe together," you suggest. 
+		"I already know how to breathe, but thank you, ${mc_name}," Nora pants a bit. 
+		"No, it's a special technique. It's for calming the nerves. Just breathe in through your nose and out through your mouth. Make sure to focus on your breathing." 
+		"I don't know about this, ${mc_name}."
+		"Just give it a try," you insist. "It'll make you feel better."
+		"All right. Only a few breaths," Nora softly breathes in through her nose and out through her mouth. She slows done for a beat, then takes a deeper breaths. After a minute or two, the color has restored to Nora's features.
+		*set charisma %+10 
+		*set influence_nora +2
+		*set cool +3
+	#Nora needs some energy. Give her a pep talk to keep her stamina up.
+		"Nora, look at me," you say. Nora looks at you. "You've spent forever working on this dinner party, and it's turning out great so far."
+		"It is?" Nora asks.
+		"Yes," you say. "People are talking to each other, having a good time, and it's all because of you. You're a great host, Nora. You can bring even the most unlikely of people together."
+		"You're right, ${mc_name}. Thank you."
+		"And now," you continue. "You have to pull yourself together and muster up one last burst of energy to really get this party started. I know you can do it, Nora. You just have to believe in yourself."
+		When you look back at Nora, she brushes something under her eye. "That was truly beautiful, ${mc_name}," she says breathily. 
+		*set charisma %+10 
+		*set influence_nora +2
+		*set intense +3 
+	#Try on some costumes. Nora is on the verge of a breakdown, and you don't want to make things worse by ignoring her.
+		"I better start trying some costumes on," you say.
+		"Thank you, ${mc_name}. You just made my job a little bit easier," Nora gives you a grateful look. 
+		*set influence_nora +1
+Nora wants you trying costumes on, so you delve deeper into the broom closet. Felix and Milos pay you no attention. You turn to face your potential wardrobe choices. 
+*temp outfit 
+temp outfit_type
+*temp suggested_outfit 
+*temp hat
+*comment willie is 1, marie is 2, lee is 3
+
+*if who_are_you = 2
+	*fake_choice
+		#A navy three piece suit with a red tie and a straw boater's hat with a red ribbon. 
+			*set outfit "navy suit"
+			*set outfit_type "suit and tie"
+			*set hat "straw boater hat"
+		#A double-breasted gray wool suit with a brown tie.
+			*set outfit "nice gray suit"
+			*set outfit_type "suit and tie"
+		#A blue shirt with leather suspenders, gray pants, and a brown newsboy cap. 
+			*set outfit "blue shirt with suspenders" 
+			*set hat "brown newsboy cap" 
+			*goto fully_dressed
+*if who_are_you = 2
+	*fake_choice
+		#A yellow sundress with a pink cloche hat and matching scarf.
+			*set outfit "a yellow sundress" 
+			*set hat *pink cloche hat"
+		#A short beaded black dress with a summer straw hat.
+			*set outfit "flapper dress"
+			*set hat "a summer straw hat"
+		#A long white skirt with a pink blouse and a pastel blue beret.
+			*set outfit "long skirt with a pink blouse"
+			*set hat "pastel blue beret" 
+			*goto fully_dressed
+*if who_are_you = 3
+		#A trench coat with a magnifying glass and a brown deerstalker hat.
+			*set outfit "detective"
+			*set hat "sherlock hat"
+		#A brown three piece tweed suit and blue tie with matching pocket square.
+			*set outfit "nice three piece tweed suit"
+			*set outfit_type "suit and tie"
+		#A blue cardigan with a brown and red striped tie. 
+			*set outfit "blue cardigan sweater with a tie"
+			*goto fully_dressed
+*label fully_dressed
+You take a minute to admire yourself in the mirror. You must admit, you look quite "jazzing" in your timely ${outfit}. Nora will definitely appreciate your choice of costume. That is, if you can find her. You saw Nora scurry away before you started getting dressed, no doubt she's out micro-managing a crisis. Felix and Milos are still trying on outfits. They're facing away from each other, and they look like magnets when you repel them. Felix is idly moving his hands down his suit, and Milos has a look of melancholy about him as he holds a baggy blue jumpsuit.
+*choice
+	#Help Felix figure out a wardrobe malfunction.
+		*set influence_felix +6
+		*goto felix_closet
+
+	#Find out why Milos looks so hopeless.
+		*set influence_milo +3
+		*goto milos_closet
+	
+*label felix_closet
+"Felix," you approach. He turns back to you, eyes wide. 
+
+"${mc_name}! Sorry if you're busy, but could you give me a hand with this?" Felix gestures to the tie. "I have no clue how to tie this thing." 
+
+"Sure thing," you say. "let me see it."
+
+The tie is knotted in half a dozen places. You are almost impressed that Felix managed to tie a tie this poorly. 
+
+"Is it bad?"
+
+*fake_choice
+	#"It's not good."
+	#"It could be worse."
+	#[Lie] "Not at all." 
+"I hate wearing suits. I can't believe Nora managed to convince me to put one on for the party," Felix grouses.
+
+You let out a sympathetic [i]mmmm[/i] as you carefully undo each knot in the tie. "Nora can be a lot sometimes," you admit.
+
+"She's fine. I have to be true to my character and my character wears a suit." 
+
+"I fixed it. Want me to tie it around your neck?" You ask. Felix nods. You smooth both sides of the tie on either end of Felix's neck. Recalling 
+*if (outfit_type = "suit and tie")
+	your previous effort tying a tie, 
+*if (sex >1)
+ the video tutorial you watched during a deep YouTube rabbit hole
+you attempt to replicate the results on Felix. He's the perfect person for this, you consider. He hasn't moved an inch the entire time you've been tying the tie on him. Felix is at complete peace with himself. You're almost a little jealous. He's managed to stay calm the entire time you've known him, which hasn't been very long, you admit. Nora mentioned something about California, but why anyone would move from California to here of all places eludes you. Your train of thought immediately disappears when you feel your hands brush against Felix's neck. Felix doesn't move or evince any sign that he noticed the touch, but his face gets a little flushed.
+*fake_choice
+	#Ignore it and move on. 
+		You shrug off the encounter and place the finishing touches of the tie. "Done," you say simply. 
+		*set calm +2 
+	#Apologize. 
+		"Sorry about that," you say apologetically. Felix gives a half-shrug. 
+		*set influence_felix +1
+	#Take the opportunity to flirt.
+		"Sorry, you had a little something there," you smile. Felix half-smiles back. You wonder if he even noticed you were trying to flirt.
+		*set influence_felix +3
+"I think we're good, ${mc_name}," Felix says. He looks himself at the mirror and adjusts his tie. Felix is wearing a bold plaid red and brown two-piece suit with a blue tie that you just helped him put on. H
+
+
+
+
+
+
+
+
+
+
+	
