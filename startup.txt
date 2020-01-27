@@ -92,11 +92,5 @@
 *create murder_w 0 
 *comment out of 13
 *create cause_of_death "unknown"
-
-
-
-
-
-
 *finish
 
