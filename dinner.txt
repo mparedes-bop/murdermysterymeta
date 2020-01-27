@@ -290,8 +290,9 @@ you attempt to replicate the results on Felix. He's the perfect person for this,
 		"Sorry about that," you say apologetically. Felix gives a half-shrug. 
 		*set influence_felix +1
 	#Take the opportunity to flirt.
-		"Sorry, you had a little something there," you smile. Felix half-smiles back. You wonder if he even noticed you were trying to flit.
+		"Sorry, you had a little something there," you smile. Felix half-smiles back. You wonder if he even noticed you were trying to flirt.
 		*set influence_felix +3
+"I think we're good, ${mc_name}," Felix says. He looks himself at the mirror and adjusts his tie. Felix is wearing a bold plaid red and brown two-piece suit with a blue tie that you just helped him put on. H
 
 
 
