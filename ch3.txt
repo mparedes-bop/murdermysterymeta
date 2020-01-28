@@ -48,6 +48,21 @@
   *set victim "Connor"
   *set victim_him "him"
   *set victim_his "his"
+*temp killer_r 
+*rand killer_r 1 6
+*if (killer_r = 1) and (victim_r != 1)
+  *set killer "Nora"
+*if (killer_r = 2) and (victim_r != 2)
+  *set killer "Milos"
+*if (killer_r = 3) and (victim_r != 3)
+  *set killer "Monte"
+*if (killer_r = 4) and (victim_r != 4)
+  *set killer "Lexa"
+*if (killer_r = 5) and (victim_r != 5)
+  *set killer "Felix" 
+*if (killer_r = 6) and (victim_r != 6)
+  *set killer "Connor" 
+
 *rand murder_w 1 10
 *if murder_w = 1
   *set murder_weapon "rat poison" 
