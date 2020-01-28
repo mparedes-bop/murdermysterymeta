@@ -1,6 +1,37 @@
 *comment murder weapon and cause of death are linked
 *comment potential causes of death are poisoning, blood loss, suffocation, blunt force trama, maybe more idk. murder weapons are numbered
 *comment murder weapons: rat poison, peanut oil (allergy), knife, axe, flagpole, winebottle pillow, drowning, rope, wrench, flagpole 
+*rand murder_w 1 10
+*if murder_w = 1
+  *set murder_weapon "rat poison" 
+  *set cause_of_death "poisoning"
+*if murder_w = 2
+  *set murder_weapon "peanut oil" 
+  *set cause_of_death "poisoning"
+*if murder_w = 3
+  *set murder_weapon "a knife"
+  *set cause_of_death "blood loss"
+*if murder_w = 4
+  *set murder_weapon "an axe"
+  *set cause_of_death "blood loss"
+*if murder_w = 5
+  *set murder_weapon "a flagpole"
+  *set cause_of_death "blunt force trauma"
+*if murder_w = 6
+  *set murder_weapon "a wine bottle"
+  *set cause_of_death "blunt force trauma"
+*if murder_w = 7
+  *set murder_weapon "a pillow"
+  *set cause_of_death "suffocation"
+*if murder_w = 8 
+  *set murder_weapon "drowning"
+  *set cause_of_death "drowning"
+*if murder_w = 9 
+  *set murder_weapon "a rope" 
+  *set cause_of_death "suffocation"
+*if murder_w = 10
+  *set murder_weapon "a wrench"
+  *set cause_of_death "blunt force trauma"
 *rand murder_l 1 10 
 *if murder_l = 1
   *set murder_location "master bedroom"
@@ -22,77 +53,63 @@
   *set murder_location "garden"
 *if murder_l = 10
   *set murder_location "bathroom" 
-
+*temp victim_he ""
 *rand victim_r 1 6 
 *if victim_r = 1
   *set victim "Nora"
   *set victim_him "her"
   *set victim_his "her"
+  *set victim_he "she"
 *if victim_r = 2
   *set victim "Milos"
   *set victim_him "him"
   *set victim_his "his"
+  *set victim_he "he"
 *if victim_r = 3
   *set victim "Monte"
   *set victim_him "her"
   *set victim_his "her"
+  *set victim_he "she"
 *if victim_r = 4
   *set victim "Lexa"
   *set victim_him "her"
   *set victim_his "her"
+  *set victim_he "she" 
 *if victim_r = 5
   *set victim "Felix" 
   *set victim_him "him"
   *set victim_his "his"
+  *set victim_he "he"
 *if victim_r = 6
   *set victim "Connor"
   *set victim_him "him"
   *set victim_his "his"
+  *set victim_he "he" 
 *temp killer_r 
 *rand killer_r 1 6
-*if (killer_r = 1) and (victim_r != 1)
+*if ((killer_r = 1) and (victim_r != 1))
   *set killer "Nora"
-*if (killer_r = 2) and (victim_r != 2)
+*if ((killer_r = 2) and (victim_r != 2))
   *set killer "Milos"
-*if (killer_r = 3) and (victim_r != 3)
+*if ((killer_r = 3) and (victim_r != 3))
   *set killer "Monte"
-*if (killer_r = 4) and (victim_r != 4)
+*if ((killer_r = 4) and (victim_r != 4))
   *set killer "Lexa"
-*if (killer_r = 5) and (victim_r != 5)
+*if ((killer_r = 5) and (victim_r != 5))
   *set killer "Felix" 
-*if (killer_r = 6) and (victim_r != 6)
+*if ((killer_r = 6) and (victim_r != 6))
   *set killer "Connor" 
+*goto who_dun_it
+*else 
+  *set killer "You" 
+  *goto who_dun_it
 
-*rand murder_w 1 10
-*if murder_w = 1
-  *set murder_weapon "rat poison" 
-  *set cause_of_death "poisoning"
-*if murder_w = 2
-  *set murder_weapon "peanut oil" 
-  *set cause_of_death "poisoning"
-*if murder_w = 3
-  *set murder_weapon "knife"
-  *set cause_of_death "blood loss"
-*if murder_w = 4
-  *set murder_weapon "axe"
-  *set cause_of_death "blood loss"
-*if murder_w = 5
-  *set murder_weapon "flagpole"
-  *set cause_of_death "blunt force trauma"
-*if murder_w = 6
-  *set murder_weapon "wine bottle"
-  *set cause_of_death "blunt force trauma"
-*if murder_w = 7
-  *set murder_weapon "pillow"
-  *set cause_of_death "suffocation"
-*if murder_w = 8 
-  *set murder_weapon "drowning"
-  *set cause_of_death "drowning"
-*if murder_w = 9 
-  *set murder_weapon "rope" 
-  *set cause_of_death "suffocation"
-*if murder_w = 10
-  *set murder_weapon "wrench"
-  *set cause_of_death "blunt force trauma"
-
+*label who_dun_it
+Do you want to see who-dun-it?
+*fake_choice 
+ #Yes.
+  ${killer} murdered ${victim} in the ${murder_location} with ${murder_weapon}. The official cause of death was ruled as ${cause_of_death}.
+ #No.
+  bruh
+*finish 
 

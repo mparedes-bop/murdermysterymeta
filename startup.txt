@@ -98,12 +98,5 @@
 *create murder_w 0 
 *comment out of 13
 *create cause_of_death "unknown"
-
-*choice
-  #Take me straight to the murder notes. [Demo]
-    *goto_scene ch3
-  #Let me play the game. 
-    *goto_scene ch1
-
 *finish
 

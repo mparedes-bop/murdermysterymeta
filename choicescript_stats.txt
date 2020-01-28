@@ -10,13 +10,11 @@
     percent Dexterity
     opposed_pair Impulsive
       Controlled
-     opposed_pair Intense 
-      Cool
     opposed_pair Virtuous
       Depraved 
     opposed_pair Lawful
       Illicit
-    
+  
 [b]Your Relationships[/b]
 
 *if know_nora = 1
@@ -39,46 +37,35 @@
 *if know_detective = 2
   *stat_chart
     percent influence_detective Detective 
-*if game_on > 0
-    [b]Mystery Notes
-    [b]Who's Who?[/b]
-    text character_info Your Character 
-    text jw_info John Watson 
-    text dk_info Dolores Knight 
-    text gc_info Gal Capone 
-    text rd_info Richard Donahue 
-    text rg_info Ruth Gambit 
-    text nw_info Nicholas Watt 
-    
- 
-
 *label main_invest_stats
-*if murder > 0 
+*if murder > 0  
   *choice 
     #View investigation notes. 
       *goto invest_notes
     #View suspect notes.
       Whose notes do you want to view?
       *goto whose
-*label whose 
-*fake_choice
-  #Nora.
-    Nora, your friend of ten years, has thrown a dinner party with an exciting twist: a murder mystery game! It seems that art imitates life, apparently. Nora planned this party to bring all her friends together; 
-    *if victim = "nora" 
-      and one of her guests has stabbed her in the back for it. 
-    why would she murder one of them?
-  #Milos.
-  #Monte.
-  #Lexa.
-  #Felix. 
-  #Connor.
-  #Detective.  
-    While you don't know much about Detective, they are eager to help. First to the scene and first to discern the grisly details of the murder, they seem to be the best chance of figuring out who killed ${victim} and why. On the other hand, Detective knowing the intricate details of the murder first and foremost is a little suspicious. What's more, he could be leading the investigation to steer suspicion away from themselves.
 
-    Detective was the first person to see the dead body. Detective claimed that he hadn’t seen ${victim} in a while and was worried they got lost in the mansion. Nora confirmed this as Detective approached Nora beforehand for permission to explore her home. When Detective went into the ${murder_location}, he found ${victim} lying on the floor, 
-    dead. Detective checked for a pulse and there was none. Immediately after discovering the body, Detective told Nora what he had seen. Nora confirmed this conversation occurred. Could they be in cahoots? 
-    *comment gosub is a useful command for repeating labelled scenes and in this case we repeat the scene where you can navigate stat screens 
-    *gosub main_invest_stats_nav
+*label whose 
+*if murder = 2
+  *fake_choice
+    #Nora.
+      Nora, your friend of ten years, has thrown a dinner party with an exciting twist: a murder mystery game! It seems that art imitates life, apparently. Nora planned this party to bring all her friends together; 
+      *if victim = "nora" 
+        and one of her guests has stabbed her in the back for it. 
+      why would she murder one of them?
+    #Milos.
+    #Monte.
+    #Lexa.
+    #Felix. 
+    #Connor.
+    #Detective.  
+      While you don't know much about Detective, they are eager to help. First to the scene and first to discern the grisly details of the murder, they seem to be the best chance of figuring out who killed ${victim} and why. On the other hand, Detective knowing the intricate details of the murder first and foremost is a little suspicious. What's more, he could be leading the investigation to steer suspicion away from themselves.
+
+      Detective was the first person to see the dead body. Detective claimed that he hadn’t seen ${victim} in a while and was worried they got lost in the mansion. Nora confirmed this as Detective approached Nora beforehand for permission to explore her home. When Detective went into the ${murder_location}, he found ${victim} lying on the floor, 
+      dead. Detective checked for a pulse and there was none. Immediately after discovering the body, Detective told Nora what he had seen. Nora confirmed this conversation occurred. Could they be in cahoots? 
+      *comment gosub is a useful command for repeating labelled scenes and in this case we repeat the scene where you can navigate stat screens 
+      *gosub main_invest_stats_nav
 *label main_invest_stats_nav
 *choice 
   #Take me back to my stats.

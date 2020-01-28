@@ -36,7 +36,7 @@ The living room is dark and eerie. Someone flicks a switch; dark, pristine Victo
 
 "Somebody died here," Monte says casually as she stretches her arms behind her head. 
 *if rebuff_monte = 0
-  Monte gives you an impish smile. 
+	Monte gives you an impish smile. 
  
 "Alright everybody!" Nora clears her throat. "In a few minutes we will officially begin the murder mystery game. Now is the time to take out the invitations sent in the mail a few weeks prior. Does anyone not have an invitation?" Nora pauses for a millisecond. "Great! The invitations have all the information you need to know about your character, including their gender,
 name, and background. The invitations do NOT say if you were murdered or are the murderer. Nobody knows anything about the murder until the clues come out in each round. Now let's briefly talk about the rounds..." 
@@ -75,7 +75,7 @@ All the guests pull out freshly-printed papers from seemingly nowhere. You self-
 		*set character_info "You are Marie Escoffier, the first female French cook to have a Times edition story about your breakout. You have been hired to cater the speakeasy. You made your signature dish, coq au vin. You explained to the measly Americans it is simply chicken braised in a dry red wine, lardons, mushrooms, and just a hint of garlic."
 		*gosub char_pronouns
 		*goto escoffier_secret 
-  	#[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
+	#[i]You are Lee Milton, a former Pinkerton Agent turned private detective. You had to leave the agency covertly after the Anti-Pinkerton Act of 1893, which prevented all Pinkertons from getting a job in the government. You had to start over; new name, new life, new everything. You managed to grab an invite posing as a lowly rumrunner. Your main motivation here is to investigate Gal Capone for the double murder of Tom and Anna Perkins, police officer and his wife. Gal Capone is no softie; she's a monster, and you're gonna bring her down.[/i]
 		*set character_name "Lee Milton"
 		*set game_m "Ruth L. Gambit"
 		*set game_v "Lee Milton" 
@@ -108,10 +108,10 @@ The Pinkerton Detective Agency is special in the way it was one of the few compa
 	*set char_his "his"
 	*set char_him "him"
 *if character_sex = 2
-	*set char_he "they"
-	*set char_his "their"
-	*set char_him "them"
-	*return
+    *set char_he "they"
+    *set char_his "their"
+    *set char_him "them"
+    *return
 *label panaggio_secret
 [i]You caught wind of the speakeasy through illicit backchannels in Manhattan. A speakeasy is the perfect place to advertise your moonshine stills and equipment, at never before seen prices. Your equipment is made to last and dirt cheap. Maybe the speakeasy guests don't need to know it's because the core components of your product are lead and arsenic. You're pretty sure lead and arsenic are good in moderation, anyway.[/i]
 

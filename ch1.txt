@@ -23,6 +23,8 @@ The blonde figure is staring at you now. You amble awkwardly on the lawn trying 
         *set charisma %-5
         *set willpower %+10 
         *goto inside_foyer
+    #Go straight to murder scene. 
+        *goto_scene ch3
 *label meet_monte 
 "Hi there," you say, smiling. "I'm...."
 *comment fake_choice is a command that acts as a regular choice but they all go to the same label 
